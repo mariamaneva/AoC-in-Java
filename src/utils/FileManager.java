@@ -22,7 +22,6 @@ public class FileManager {
         try {
             byte[] bytes = Files.readAllBytes(FileManager.getInputsPath(filename));
             content = new String(bytes);
-            System.out.println(111 + content);
         } catch (IOException e) {
             System.out.println("Failed to get content!" + e.getMessage());
         }
