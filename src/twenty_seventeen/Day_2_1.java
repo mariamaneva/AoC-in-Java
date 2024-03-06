@@ -1,27 +1,34 @@
 package twenty_seventeen;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
-
 import utils.FileManager;
 
 public class Day_2_1 {
-    private static String testInput = "5 1 9 5\n" + //
-            "7 5 3\n" + //
-            "2 4 6 8";
-    private static String input = FileManager.readInlineInput("day_1.txt");
 
     public static void main(String[] args) {
-        String _i = testInput;
-        String[] rowsArray = _i.split("\n");
-        int[][] _inputArr = {};
-        for (int i = 0; i < rowsArray.length; i++) {
-            _inputArr[i] = Stream.of(rowsArray[i]).mapToInt(Integer::parseInt).toArray();
+        // Stream<String> rawInput =
+        // FileManager.readLinesToStream("day_2_test_input.txt");
+        Stream<String> rawInput = FileManager.readLinesToStream("day_2.txt");
+        if (rawInput != null) {
+            Stream<Stream<Integer>> input = rawInput
+                    .map(line -> Arrays.asList(line.split("\\s+")).stream().map(num -> Integer.parseInt(num))
+                            .sorted((a, b) -> a - b));
+
+            // input.forEach(line -> {
+            // System.out.println("----");
+            // System.out.println(line.map(Object::toString).collect(Collectors.joining("
+            // ")));
+            // });
+
+            Stream<Integer> results = input.map(line -> {
+                List<Integer> list = line.toList();
+                return list.get(list.size() - 1) - list.get(0);
+            });
+
+            // System.out.println(results.reduce(0, (a, b) -> a + b));
+            System.out.println(results.reduce(0, (a, b) -> a + b));
         }
-
-        Arrays.stream(_inputArr).forEach(System.out::println);
-
     }
 }
