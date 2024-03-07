@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class FileManager {
@@ -38,6 +40,25 @@ public class FileManager {
         Stream<String> contentStream = null;
         try {
             contentStream = Files.lines(Path.of("./inputs/" + filename));
+        } catch (IOException e) {
+            System.out.println("Failed to get content!" + e.getMessage());
+        }
+
+        return contentStream;
+    }
+
+    /**
+     * Read a file and return a stream of strings
+     * 
+     * @param filename - the name/path if nested of the file within the inputs
+     *                 folder
+     * @return a list of all new lines
+     */
+
+    public static List<String> readLinesToList(String filename) {
+        List<String> contentStream = null;
+        try {
+            contentStream = Files.lines(Path.of("./inputs/" + filename)).collect(Collectors.toList());
         } catch (IOException e) {
             System.out.println("Failed to get content!" + e.getMessage());
         }
