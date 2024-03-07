@@ -8,6 +8,14 @@ import utils.FileManager;
 
 public class Day_2_2 {
 
+    // REDDIT SOLUTION
+
+    // List<List<Integer>> spreadsheet = parseInput();
+    // return spreadsheet.stream()
+    // .map(row -> row.stream().flatMap(i -> row.stream().filter(j -> j != i && j %
+    // i == 0).map(j -> j / i)))
+    // .flatMap(Function.identity()).reduce(0, Integer::sum);
+
     public static void main(String[] args) {
         // var rawInput = FileManager.readLinesToList("day_2_2_test_input.txt");
         var rawInput = FileManager.readLinesToList("day_2.txt");

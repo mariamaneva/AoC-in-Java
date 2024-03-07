@@ -7,6 +7,19 @@ import utils.FileManager;
 
 public class Day_2_1 {
 
+    // REDDIT SOLUTION
+
+    // public static void main(String[] args) {
+    // BufferedReader r = new BufferedReader(new StringReader(input));
+    // int sum = r.lines().mapToInt(Day2_2017::diff).sum();
+    // }
+
+    // private static int diff(String line) {
+    // IntSummaryStatistics intSummaryStatistics =
+    // Arrays.stream(line.split("\\t")).mapToInt(Integer::valueOf).summaryStatistics();
+    // return intSummaryStatistics.getMax() - intSummaryStatistics.getMin();
+    // }
+
     public static void main(String[] args) {
         // Stream<String> rawInput =
         // FileManager.readLinesToStream("day_2_test_input.txt");
